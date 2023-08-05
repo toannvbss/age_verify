@@ -1,0 +1,40 @@
+<?php
+/** @var  $block \Miu\AgeVerification\Block\View */
+/** @var  $helper \Miu\AgeVerification\Helper\Config */
+$helper = $block->initHelper();
+$content = $helper->getPopupContent();
+$code = $helper->getSecureCode();
+$redirectUrl = $helper->getRedirectUrl();
+$cookieInterval = $helper->getCookieInterval();
+if (!preg_match("~^(?:f|ht)tps?://~i", $redirectUrl)) {
+    $redirectUrl = "http://" . $redirectUrl;
+}
+?>
+<?php if($helper->isEnable() && !$block->getSecretValue()): ?>
+<div id="popup-modal-age-verification" style="display: none;">
+    <div class="popup-title"><h2><?= __($helper->getPopupTitle()) ?></h2></div>
+    <div class="popup-content"><p style="font-family: 'Bebas Neue', cursive;"><?= __($content) ?></p></div>
+    <div class="popup-action agree">
+        <button class="agree-button" type="button"><span><?= __($helper->getPopupAgreeButtonText()) ?></span></button>
+    </div>
+    <div class="popup-action disagree">
+        <button class="disagree-button" type="button"><span><?= __($helper->getPopupDisAgreeButtonText()) ?></span></button>
+    </div>
+    <div class="cookie-accept">By continuing to our website you accept our use of cookies
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#popup-modal-age-verification": {
+            "Miu_AgeVerification/js/modal": {
+                "ajaxUrl": "<?php echo $block->getAjaxUrl(); ?>",
+                "title": "<?php echo $helper->getPopupTitle(); ?>",
+                "agree": "<?php echo $helper->getPopupAgreeButtonText(); ?>",
+                "disagree": "<?php echo $helper->getPopupDisAgreeButtonText(); ?>",
+                "redirectUrl": "<?php echo $redirectUrl ?>",
+                "cookieInterval": "<?php echo $cookieInterval ?>"
+            }
+        }
+    }
+</script>
+<?php endif; ?>

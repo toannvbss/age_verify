@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Smartosc\Customer\Block\Widget\Gender $block */
+?>
+<div class="field gender<?= $block->isRequired() ? ' required' : ''?>">
+    <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>"><span><?= $block->escapeHtml($block->getStoreLabel('gender')) ?></span></label>
+    <div class="control">
+        <select id="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('gender')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('gender')) ?>"<?php if ($block->isRequired()) : ?> class="validate-select" data-validate="{required:true}"<?php endif; ?>>
+            <?php $options = $block->getListGender(); ?>
+            <?php $value = $block->getGender(); ?>
+            <?php foreach ($options as $option) : ?>
+                <option value="<?= $block->escapeHtmlAttr($option['value']) ?>" <?= ($option['value'] == $value) ? ' selected="selected"' : '' ?>><?= $block->escapeHtml(__($option['label'])) ?></option>
+            <?php endforeach;?>
+        </select>
+    </div>
+</div>

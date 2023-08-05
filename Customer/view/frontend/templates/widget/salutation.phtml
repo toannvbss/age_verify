@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Smartosc\Customer\Block\Widget\Salutation $block */
+?>
+<div class="field gender<?= $block->isRequired() ? ' required' : ''?>">
+    <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('salutation')) ?>"><span><?= $block->escapeHtml($block->getStoreLabel('salutation')) ?></span></label>
+    <div class="control">
+        <select id="<?= $block->escapeHtmlAttr($block->getFieldId('salutation')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('salutation')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('salutation')) ?>"<?php if ($block->isRequired()) : ?> class="validate-select" data-validate="{required:true}"<?php endif; ?>>
+            <?php $options = $block->getSalutationOptions(); ?>
+            <?php $value = $block->getSalutation(); ?>
+            <?php foreach ($options as $option) : ?>
+                <?php if (!$option->getValue()) { continue; } ?>
+                <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"<?= ($option->getLabel() == $value) ? ' selected="selected"' : '' ?>><?= $block->escapeHtml(__($option->getLabel())) ?></option>
+            <?php endforeach;?>
+        </select>
+    </div>
+</div>

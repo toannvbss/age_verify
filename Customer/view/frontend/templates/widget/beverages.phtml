@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Smartosc\Customer\Block\Widget\Beverages $block */
+?>
+<div class="field gender<?= $block->isRequired() ? ' required' : ''?>">
+    <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('beverages_preference')) ?>"><span><?= $block->escapeHtml($block->getStoreLabel('beverages_preference')) ?></span></label>
+    <div class="control">
+        <?php $options = $block->getListBeverages();
+            $value = $block->getBeveragesPreferenece();
+            $selected = explode(',', $value);
+        ?>
+        <?php foreach ($options as $option) : ?>
+            <div class="field choice">
+                <input type="checkbox"
+                       id="beverages_<?= $block->escapeHtml(__($option['value'])) ?>"
+                       name="beverages_preference[option_<?= $block->escapeHtml(__($option['value'])) ?>]"
+                       value="<?= $block->escapeHtml(__($option['value'])) ?>"
+                       data-role="toggle-editability"
+                       <?php if (in_array($option['value'], $selected)) {echo 'checked';} ?>
+                       />
+                <label for="beverages_<?= $block->escapeHtml(__($option['value'])) ?>" class="label">
+                    <span><?= $block->escapeHtml(__($option['label'])) ?></span>
+                </label>
+            </div>
+        <?php endforeach;?>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Shiprestriction
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Customer\Block\Widget\Telephone"
+                type="Smartosc\Customer\Block\Widget\Telephone"/>
+    <preference for="Magento\Customer\Block\Widget\Dob"
+                type="Smartosc\Customer\Block\Widget\Dob"/>
+    <preference for="Magento\Customer\Block\Account\Dashboard\Info"
+                type="Smartosc\Customer\Block\Account\Dashboard\Info"/>
+    <preference for="Magento\Customer\Block\Widget\Gender"
+                type="Smartosc\Customer\Block\Widget\Gender"/>
+    <preference for="Magento\Customer\Block\Form\Register"
+                type="Smartosc\Customer\Block\Form\Register"/>
+    <preference for="Magento\Customer\Block\Form\Edit"
+                type="Smartosc\Customer\Block\Form\Edit"/>
+    <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="prepare_address_crm" type="Smartosc\Customer\Plugin\Block\Address\PrepareAddressCRM"/>
+    </type>
+    <type name="Magento\Customer\Block\Account\Dashboard">
+        <plugin name="prepare_address_crm" type="Smartosc\Customer\Plugin\Block\Account\PrepareCustomerCRM"/>
+    </type>
+    <type name="Magento\Customer\Model\CustomerExtractor">
+        <plugin name="prepare_custom_attribute" type="Smartosc\Customer\Plugin\PrepareCustomAttribute" />
+    </type>
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="create_rcm_profile" type="Smartosc\Customer\Plugin\CreateCRMProfile" />
+        <plugin name="change_password_rcm_profile" type="Smartosc\Customer\Plugin\Customer\ChangePasswordCRMProfile" />
+    </type>
+    <preference for="Magento\Customer\Controller\Account\ForgotPasswordPost"
+                type="Smartosc\Customer\Controller\Account\ForgotPasswordPost"/>
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="integrate_rcm_profile_before_save" type="Smartosc\Customer\Plugin\IntegrationCRMBeforeSave" />
+    </type>
+    <type name="Magento\Customer\Api\AddressRepositoryInterface">
+        <plugin name="integrate_rcm_address_before_save" type="Smartosc\Customer\Plugin\Customer\IntegrationAddressCRMBeforeSave"/>
+    </type>
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="integrate_rcm_account_login" type="Smartosc\Customer\Plugin\Customer\IntegrationCRMAccountLogin"/>
+    </type>
+    <virtualType name="Smartosc\CRM\Logger\HandlerCRMAccountLoginLogger" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/crm_account_login.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Smartosc\CRM\Logger\CRMAccountLoginLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="info" xsi:type="object">Smartosc\CRM\Logger\HandlerCRMAccountLoginLogger</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Smartosc\Customer\Plugin\Customer\IntegrationCRMAccountLogin">
+        <arguments>
+            <argument name="logger" xsi:type="object">Smartosc\CRM\Logger\CRMAccountLoginLogger</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\Theme\Block\Html\Header\Logo"
+                type="Smartosc\Customer\Block\Html\Header\Logo"/>
+</config>

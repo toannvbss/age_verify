@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<!--    <event name="customer_register_success">-->
+<!--        <observer name="save_additional_data_crm" instance="Smartosc\Customer\Observer\Customer\UpdateAdditionalField"/>-->
+<!--    </event>-->
+<!--  // CELLARBRAT-400-remove-crm-integration-for-pos -->
+<!--    <event name="pos_customer_after_save">-->
+<!--        <observer name="pos_create_crm_profile" instance="Smartosc\Customer\Observer\Customer\CreateCRMProfilePOS"/>-->
+<!--    </event>-->
+</config>

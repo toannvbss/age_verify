@@ -1,0 +1,10 @@
+<div class="field field-referral-code">
+    <label class="label" for="referral_code"><span><?php echo __('Referral Code'); ?></span></label>
+    <div class="control">
+        <?php if ($block->getData('isDisable')) : ?>
+            <input value="<?php echo $block->getReferralCode(); ?>" type="text" disabled="disabled">
+        <?php else : ?>
+            <input value="<?php echo $block->getReferralCode(); ?>" type="text" id="referral_code" name="referral_code" title="Referral Code" class="input-text" autocomplete="off">
+        <?php endif; ?>
+    </div>
+</div>

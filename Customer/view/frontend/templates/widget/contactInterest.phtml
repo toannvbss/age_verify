@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var \Smartosc\Customer\Block\Widget\ContactInterest $block */
+?>
+<div class="field contact-interest" style="display: none" id="contact-interest">
+    <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('contact_interest')) ?>"><span><?= $block->escapeHtml($block->getStoreLabel('contact_interest')) ?></span></label>
+    <div class="control">
+        <?php $options = $block->getListContactInterest();
+        $value = $block->getContactInterest();
+        if ($value && is_string($value)) {
+            $selected = explode(',', $value);
+        } else {
+            $selected = [];
+        }
+        ?>
+        <?php foreach ($options as $option) : ?>
+            <div class="field choice">
+                <input type="checkbox"
+                       id="contact-interest<?= $block->escapeHtml(__($option['value'])) ?>"
+                       name="contact_interest[option_<?= $block->escapeHtml(__($option['value'])) ?>]"
+                       value="<?= $block->escapeHtml(__($option['value'])) ?>"
+                       data-role="toggle-editability"
+                    <?php if (in_array($option['value'], $selected)) {echo 'checked';} ?>
+                />
+                <label for="contact-interest<?= $block->escapeHtml(__($option['value'])) ?>" class="label">
+                    <span><?= $block->escapeHtml(__($option['label'])) ?></span>
+                </label>
+            </div>
+        <?php endforeach;?>
+    </div>
+</div>

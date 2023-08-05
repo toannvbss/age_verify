@@ -1,0 +1,11 @@
+<div class="field referral_code">
+    <label class="label" for="<?= __('personal_code') ?>">
+        <span><?= __('Personal Code') ?></span></label>
+    <div class="control">
+        <input type="text"
+               id="referral_code"
+               value="<?= $block->getPersonalCodeValue() ?>"
+               title="<?= __('Personal Code') ?>" class="input-text" disabled
+        />
+    </div>
+</div>

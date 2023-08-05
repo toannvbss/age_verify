@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <acc_crm>
+            <crm_field_register>
+                <personal_data_label>I agree to receive marketing, advertising and promotional information as per Cellar %1personal data%2 notice and consent</personal_data_label>
+                <personal_data_link>/checkout</personal_data_link>
+                <term_conditions_label>Agree to %1terms and conditions%2 of the Cellar Rewards Programme</term_conditions_label>
+                <term_conditions_link>https://cexsgapi.memgate.com/conditions</term_conditions_link>
+            </crm_field_register>
+            <crm_field_info>
+                <enable_change_email>0</enable_change_email>
+            </crm_field_info>
+        </acc_crm>
+    </default>
+</config>

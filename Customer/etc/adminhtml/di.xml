@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Ui\Component\DataProvider">
+        <plugin name="extend_customer_grid" type="Smartosc\Customer\Plugin\Ui\Component\DataProvider"/>
+    </type>
+</config>

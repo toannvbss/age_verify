@@ -1,0 +1,104 @@
+& when (@media-common = true) {
+  .age-verification-modal {
+    .modal-content {
+      .popup-title {
+        text-align: center;
+        color: #ffffff;
+        display: none;
+        h2 {
+          font-weight: bold;
+          margin-bottom: 35px;
+        }
+      }
+      .popup-content {
+        color: #ffffff;
+        margin-bottom: 40px;
+        font-family: 'Raleway';
+        p {
+          font-size: 50px;
+          font-family: 'Raleway';
+          text-align: center;
+          font-weight: 700;
+          margin-bottom: 0px;
+          text-transform: uppercase;
+          display: inline-block;
+          position: relative;
+        }
+      }
+    }
+    button.agree-button {
+      float: left;
+      background: #e01d25;
+      color: #ffffff;
+      font-size: 14px;
+      border: 2px solid #e01d25;
+      box-shadow: none;
+      padding: 5px 25px;
+      text-transform: capitalize;
+      font-weight: 900
+    }
+    button.disagree-button {
+      background: transparent;
+      color: #ffffff;
+      font-size: 14px;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      text-transform: capitalize;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+    }
+    button.disagree-button:hover {
+      text-decoration: underline;
+    }
+  }
+  .modal-popup._inner-scroll.age-verification-modal .modal-inner-wrap {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: url(../images/Login_Bg.jpg);
+    margin: 0;
+    background-size: cover;
+  }
+  aside.modal-popup.age-verification-modal.modal-slide._inner-scroll._show {
+    z-index: 9999999999 !important
+  }
+  #popup-modal-age-verification {
+    vertical-align: middle;
+    position: absolute;
+    top: 25vh;
+    text-align: center;
+    left: 0;
+    right: 0;
+  }
+  .popup-action.agree {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  body._has-modal {
+    overflow: hidden !important;
+  }
+    .cookie-accept {
+        color: white;
+        font-size: 20px;
+        padding-top: 20px;
+        font-weight: bold;
+    }
+    #cookie-checkbox {
+        position: inherit;
+        transform: scale(1.5);
+        margin-left: 10px;
+    }
+}
+@media only screen and (max-width: 991px){
+  .modal-popup.age-verification-modal.modal-slide {
+    left:0;
+  }
+  .age-verification-modal .modal-content .popup-content {
+    width: 100%;
+  }
+}

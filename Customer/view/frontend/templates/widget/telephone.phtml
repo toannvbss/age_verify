@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Widget\Telephone $block */
+if ($block->getTelephonePrefix()) {
+    $defaultCountryCode = $block->getTelephonePrefix();
+} else {
+    $defaultCountryCode = $block->getCountryCodeByStore();
+}
+$block->getCountryCodePhoneOptionsWithName();
+?>
+
+<div class="field telephone <?= $block->isRequired() ? 'required' : '' ?>">
+    <label for="telephone" class="label">
+        <span>
+            <?= $block->escapeHtml(__('Phone Number')) ?>
+        </span>
+    </label>
+    <div class="control" style="display: inline-block; width: 100%;">
+        <select id="telephone_prefix" name="telephone_prefix" <?php if ($block->isRequired()) : ?> class="validate-select telephone-prefix" data-validate="{required:true}"<?php endif; ?>>
+            <?php $options = $block->getCountryCodePhoneOptionsWithName(); ?>
+            <?php foreach ($options as $code => $option) : ?>
+                <?php if (!$option) { continue; } ?>
+                <option value="<?= $block->escapeHtmlAttr($code) ?>"<?= ($code == $defaultCountryCode) ? ' selected="selected"' : '' ?>><?= '(' . $option . ') ' .  $block->escapeHtml(__($block->getPhoneCodeOptions()[$code])) ?></option>
+            <?php endforeach;?>
+        </select>
+        <input type="text"
+               name="telephone"
+               id="telephone"
+               value="<?= $block->escapeHtmlAttr($block->getTelephone()) ?>"
+               title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
+               class="input-text phone-number <?= $block->escapeHtmlAttr($block->getAttributeValidationClass('telephone')) ?>"
+        >
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="acc_crm" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>CRM</label>
+            <class>separator-top</class>
+            <tab>smartosc</tab>
+            <resource>Smartosc_CRM::crm_integrate</resource>
+            <group id="crm_field_register" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Additional Field Register CRM</label>
+                <field id="personal_data_label" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cellar Personal Data Label</label>
+                </field>
+                <field id="personal_data_link" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cellar Personal Data Link</label>
+                </field>
+                <field id="term_conditions_label" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Term And Conditions Label</label>
+                </field>
+                <field id="term_conditions_link" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Term And Conditions Link</label>
+                </field>
+            </group>
+            <group id="crm_field_info" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Additional Field Register CRM</label>
+                <field id="enable_change_email" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Change Email Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="smartosc_customer" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customer</label>
+            <class>separator-top</class>
+            <tab>smartosc</tab>
+            <resource>Smartosc_CRM::crm_integrate</resource>
+            <group id="login" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Login Page</label>
+                <field id="logo" translate="label comment" type="image" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Select Logo Customer Page</label>
+                    <backend_model>Smartosc\Customer\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">customer_logo</base_url>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

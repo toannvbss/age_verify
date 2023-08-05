@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <age_verification_tab>
+            <general>
+                <active>1</active>
+                <title><![CDATA[Age Verification]]></title>
+                <agree_button_text><![CDATA[18+ Enter]]></agree_button_text>
+                <disagree_button_text><![CDATA[Under 18]]></disagree_button_text>
+                <content><![CDATA[Are you above 18+]]></content>
+                <redirect><![CDATA[http://www.google.co.in]]></redirect>
+                <cookie_interval>24</cookie_interval>
+                <session_code><![CDATA[uim@ega#noitacifirev]]></session_code>
+            </general>
+        </age_verification_tab>
+    </default>
+</config>
